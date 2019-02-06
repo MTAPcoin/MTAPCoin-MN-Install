@@ -55,7 +55,7 @@ case $key in
     -h|--help)
     cat << EOL
 
-NORT Masternode installer arguments:
+MTAP Masternode installer arguments:
 
     -n --normal               : Run installer in normal mode
     -a --advanced             : Run installer in advanced mode
@@ -82,9 +82,9 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 
 clear
 
-# Set these to change the version of northern to install
-TARBALLURL="https://github.com/zabtc/Northern/releases/download/2.4.0/northern-2.4.0-x86_64-linux-gnu.tar.gz"
-TARBALLNAME="northern-2.4.0-x86_64-linux-gnu.tar.gz"
+# Set these to change the version of mtap to install
+TARBALLURL="https://github.com/MTAPcoin/MTAPCoin/releases/download/1.0.0/mtap-1.0.0-x86_64-linux-gnu.tar.gz"
+TARBALLNAME="mtap-1.0.0-x86_64-linux-gnu.tar.gz"
 BOOTSTRAPURL=""
 BOOTSTRAPARCHIVE=""
 BWKVERSION="1.0.0"
@@ -131,7 +131,7 @@ echo "
  |               installation method.               |::
  |                                                  |::
  |  Otherwise, your masternode will not work, and   |::
- | the NORT Team CANNOT assist you in repairing  |::
+ | the MTAP Team CANNOT assist you in repairing  |::
  |         it. You will have to start over.         |::
  |                                                  |::
  +------------------------------------------------+::
@@ -148,13 +148,13 @@ fi
 
 if [[ ("$ADVANCED" == "y" || "$ADVANCED" == "Y") ]]; then
 
-USER=northern
+USER=mtap
 
 adduser $USER --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password > /dev/null
 
 INSTALLERUSED="#Used Advanced Install"
 
-echo "" && echo 'Added user "northern"' && echo ""
+echo "" && echo 'Added user "mtap"' && echo ""
 sleep 1
 
 else
@@ -216,30 +216,30 @@ if [[ ("$UFW" == "y" || "$UFW" == "Y" || "$UFW" == "") ]]; then
   ufw default deny incoming
   ufw default allow outgoing
   ufw allow ssh
-  ufw allow 6942/tcp
+  ufw allow 6987/tcp
   yes | ufw enable
 fi
 
-# Install NORT daemon
+# Install MTAP daemon
 wget $TARBALLURL
 tar -xzvf $TARBALLNAME 
 rm $TARBALLNAME
-mv ./northernd /usr/local/bin
-mv ./northern-cli /usr/local/bin
-mv ./northern-tx /usr/local/bin
+mv ./mtapd /usr/local/bin
+mv ./mtap-cli /usr/local/bin
+mv ./mtap-tx /usr/local/bin
 rm -rf $TARBALLNAME
 
-# Create .northern directory
-mkdir $USERHOME/.northern
+# Create .mtap directory
+mkdir $USERHOME/.mtap
 
 # Install bootstrap file
 if [[ ("$BOOTSTRAP" == "y" || "$BOOTSTRAP" == "Y" || "$BOOTSTRAP" == "") ]]; then
   echo "skipping"
 fi
 
-# Create northern.conf
-touch $USERHOME/.northern/northern.conf
-cat > $USERHOME/.northern/northern.conf << EOL
+# Create mtap.conf
+touch $USERHOME/.mtap/mtap.conf
+cat > $USERHOME/.mtap/mtap.conf << EOL
 ${INSTALLERUSED}
 rpcuser=${RPCUSER}
 rpcpassword=${RPCPASSWORD}
@@ -250,44 +250,36 @@ daemon=1
 logtimestamps=1
 maxconnections=256
 externalip=${IP}
-bind=${IP}:6942
+bind=${IP}:6987
 masternodeaddr=${IP}
 masternodeprivkey=${KEY}
 masternode=1
-addnode=207.246.69.246
-addnode=209.250.233.104
-addnode=45.77.82.101
-addnode=138.68.167.127
-addnode=45.77.218.53
-addnode=207.246.86.118
-addnode=128.199.44.28
-addnode=139.59.164.167
-addnode=139.59.177.56
-addnode=206.189.58.89
-addnode=207.154.202.113
-addnode=140.82.54.227
+addnode=45.76.231.5
+addnode=95.179.145.20
+addnode=199.247.30.215
+addnode=140.82.56.104
 EOL
-chmod 0600 $USERHOME/.northern/northern.conf
-chown -R $USER:$USER $USERHOME/.northern
+chmod 0600 $USERHOME/.mtap/mtap.conf
+chown -R $USER:$USER $USERHOME/.mtap
 
 sleep 1
 
-cat > /etc/systemd/system/northern.service << EOL
+cat > /etc/systemd/system/mtap.service << EOL
 [Unit]
-Description=northernd
+Description=mtapd
 After=network.target
 [Service]
 Type=forking
 User=${USER}
 WorkingDirectory=${USERHOME}
-ExecStart=/usr/local/bin/northernd -conf=${USERHOME}/.northern/northern.conf -datadir=${USERHOME}/.northern
-ExecStop=/usr/local/bin/northern-cli -conf=${USERHOME}/.northern/northern.conf -datadir=${USERHOME}/.northern stop
+ExecStart=/usr/local/bin/mtapd -conf=${USERHOME}/.mtap/mtap.conf -datadir=${USERHOME}/.mtap
+ExecStop=/usr/local/bin/mtap-cli -conf=${USERHOME}/.mtap/mtap.conf -datadir=${USERHOME}/.mtap stop
 Restart=on-abort
 [Install]
 WantedBy=multi-user.target
 EOL
-sudo systemctl enable northern.service
-sudo systemctl start northern.service
+sudo systemctl enable mtap.service
+sudo systemctl start mtap.service
 
 clear
 
