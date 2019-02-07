@@ -294,4 +294,4 @@ read -p "Press Enter to continue after you've done that. " -n1 -s
 
 clear
 
-echo "" && echo "Masternode setup completed." && echo ""
+echo "" && echo "Masternode setup completed.." && echo ""
