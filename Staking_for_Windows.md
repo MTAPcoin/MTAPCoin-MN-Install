@@ -1,5 +1,5 @@
 ## Windows Wallet Staking Guide
-* This section is designed to help you setup your Windows wallet for staking IPS
+* This section is designed to help you setup your Windows wallet for staking MTAP coin
 
 Install the latest released MTAP Windows Wallet
 Both 32bit and 64bit variants are available
@@ -30,7 +30,7 @@ Staking=1
 Settings -> Unlock Wallet
 ```
 
-Now you are set to start staking your IPS
+Now you are set to start staking your MTAP coin
 
 Note: Remember transaction in your wallet will need 101 conformations to be eligable to start staking.
 
@@ -39,7 +39,7 @@ Note: Remember transaction in your wallet will need 101 conformations to be elig
 
 ## Indexing coins for Staking.
 
-In this tutorial we will be indexing 2000 IPS into a index of 1000 IPS each
+In this tutorial we will be indexing 2000 MTAP coin into a index of 1000 MTAP coin each
 
 * From wallet turn on coin control
 
