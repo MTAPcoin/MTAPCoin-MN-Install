@@ -1,10 +1,10 @@
 ## Windows Wallet Staking Guide
 * This section is designed to help you setup your Windows wallet for staking IPS
 
-Install the latest released IPSUM Windows Wallet
+Install the latest released MTAP Windows Wallet
 Both 32bit and 64bit variants are available
 
-[Wallet Releases](https://github.com/ipsum-network/ips/releases)
+[Wallet Releases](https://github.com/MTAPcoin/MTAPCoin/releases)
 
 ## Basic wallet Staking
 From inside your wallet create a passphrase
