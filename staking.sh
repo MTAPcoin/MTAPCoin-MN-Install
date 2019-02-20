@@ -28,9 +28,9 @@ sudo free
 sudo echo "/var/swap.img none swap sw 0 0" >> /etc/fstab
 cd
 
-wget https://github.com/MTAPcoin/MTAPCoin/releases/download/1.1.0/mtap-1.1.0-x86_64-linux-gnu.tar.gz
-tar -xzf mtap-1.1.0-x86_64-linux-gnu.tar.gz
-rm -rf mtap-1.1.0-x86_64-linux-gnu.tar.gz
+wget https://github.com/MTAPcoin/MTAPCoin/releases/download/1.2.0/mtap-1.2.0-x86_64-linux-gnu.tar.gz
+tar -xzf mtap-1.2.0-x86_64-linux-gnu.tar.gz
+rm -rf mtap-1.2.0-x86_64-linux-gnu.tar.gz
 
 sudo apt-get install -y ufw
 sudo ufw allow ssh/tcp
