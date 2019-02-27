@@ -38,7 +38,7 @@ sudo ufw limit ssh/tcp
 sudo ufw logging on
 echo "y" | sudo ufw enable
 sudo ufw status
-sudo ufw allow 6950/tcp
+sudo ufw allow 6933/tcp
   
 cd
 mkdir -p .mtap
@@ -55,7 +55,7 @@ echo "addnode=45.76.231.5" >> mtap.conf
 echo "addnode=95.179.145.20" >> mtap.conf
 echo "addnode=199.247.30.215" >> mtap.conf
 echo "addnode=140.82.56.104" >> mtap.conf
-echo "port=6950" >> mtap.conf
+echo "port=6933" >> mtap.conf
 mv mtap.conf .mtap
 
   
