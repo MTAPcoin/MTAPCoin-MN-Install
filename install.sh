@@ -83,7 +83,7 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 clear
 
 # Set these to change the version of mtap to install
-TARBALLURL="https://github.com/MTAPcoin/MTAPCoin/releases/download/2.0.0/mtap-2.0.0-x86_64-linux-gnu.tar.gz"
+TARBALLURL="https://github.com/MTAPcoin/MTAP/releases/download/2.0.0/mtap-2.0.0-x86_64-linux-gnu.tar.gz"
 TARBALLNAME="mtap-2.0.0-x86_64-linux-gnu.tar.gz"
 BOOTSTRAPURL=""
 BOOTSTRAPARCHIVE=""
