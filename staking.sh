@@ -28,9 +28,9 @@ sudo free
 sudo echo "/var/swap.img none swap sw 0 0" >> /etc/fstab
 cd
 
-wget https://github.com/MTAPcoin/MTAPCoin/releases/download/1.2.0/mtap-1.2.0-x86_64-linux-gnu.tar.gz
-tar -xzf mtap-1.2.0-x86_64-linux-gnu.tar.gz
-rm -rf mtap-1.2.0-x86_64-linux-gnu.tar.gz
+wget https://github.com/MTAPcoin/MTAPCoin/releases/download/2.0.0/mtap-2.0.0-x86_64-linux-gnu.tar.gz
+tar -xzf mtap-2.0.0-x86_64-linux-gnu.tar.gz
+rm -rf mtap-2.0.0-x86_64-linux-gnu.tar.gz
 
 sudo apt-get install -y ufw
 sudo ufw allow ssh/tcp
@@ -38,7 +38,7 @@ sudo ufw limit ssh/tcp
 sudo ufw logging on
 echo "y" | sudo ufw enable
 sudo ufw status
-sudo ufw allow 6987/tcp
+sudo ufw allow 6950/tcp
   
 cd
 mkdir -p .mtap
@@ -55,7 +55,7 @@ echo "addnode=45.76.231.5" >> mtap.conf
 echo "addnode=95.179.145.20" >> mtap.conf
 echo "addnode=199.247.30.215" >> mtap.conf
 echo "addnode=140.82.56.104" >> mtap.conf
-echo "port=6987" >> mtap.conf
+echo "port=6950" >> mtap.conf
 mv mtap.conf .mtap
 
   
