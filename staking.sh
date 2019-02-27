@@ -28,7 +28,7 @@ sudo free
 sudo echo "/var/swap.img none swap sw 0 0" >> /etc/fstab
 cd
 
-wget https://github.com/MTAPcoin/MTAPCoin/releases/download/2.0.0/mtap-2.0.0-x86_64-linux-gnu.tar.gz
+wget https://github.com/MTAPcoin/MTAP/releases/download/2.0.0/mtap-2.0.0-x86_64-linux-gnu.tar.gz
 tar -xzf mtap-2.0.0-x86_64-linux-gnu.tar.gz
 rm -rf mtap-2.0.0-x86_64-linux-gnu.tar.gz
 
